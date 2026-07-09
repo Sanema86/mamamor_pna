@@ -94,7 +94,6 @@ nav {
   justify-content: center;
   text-decoration: none;
   transition: transform 0.3s ease;
-  fill: var(--lav-dark);
 }
 
 .svg-whatsapp:hover {
