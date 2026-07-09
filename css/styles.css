@@ -1,233 +1,1393 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mamamor – Blanquería para bebés y hogar</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/styles.css">
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-</head>
-<body>
+:root {
+  --lav: #9b7fc7;
+  --lav-dark: #7d5fb5;
+  --lav-light: #c9b3e8;
+  --lav-pale: #f0ebf8;
+  --lav-bg: #f8f4fd;
+  --lav-mid: #e0d4f4;
+  --white: #ffffff;
+  --text: #3d2d5e;
+  --text-soft: #7a6a96;
+}
 
-<div class="topbar">
-  ♥ &nbsp;Envíos a todo el país&nbsp; | &nbsp;3 y 6 cuotas sin interés con Mercado Pago
-</div>
+body {
+  font-family: "Nunito", sans-serif;
+  color: var(--text);
+  background: var(--white);
+  overflow-x: hidden;
+}
 
-<nav>
-<button class="menu-btn" aria-label="Abrir menú">
-    <svg viewBox="0 0 24 24">
-        <path d="M3 6h18M3 12h18M3 18h18"/>
-    </svg>
-</button>
+/* TOPBAR */
+.topbar {
+  background: var(--lav);
+  color: white;
+  text-align: center;
+  font-size: 0.82rem;
+  padding: 9px 16px;
+  letter-spacing: 0.015em;
+}
 
-  <a href="index.html" class="nav-logo"><img src="images/logo.png" alt="Mamamor Logo">
-  </a>
-  <ul class="nav-links">
-    <li><a href="index.html">Inicio</a></li>
-    <li><a href="productos.html">Productos ▾</a></li>
-    <li><a href="novedades.html">Novedades</a></li>
-    <li><a href="nosotros.html">Nosotros</a></li>
-    <li><a href="contacto.html">Contacto</a></li>
-  </ul>
-  <div class="nav-icons">
-    <button class="nav-icon-btn" aria-label="Buscar">
-      <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-    </button>
-    <button class="nav-icon-btn" aria-label="Mi cuenta">
-      <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-    </button>
-    <button class="nav-icon-btn" aria-label="Carrito">
-      <svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
-      <span class="cart-badge">2</span>
-    </button>
-  </div>
-</nav>
+/* NAVBAR */
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 48px;
+  background: white;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 1px 10px rgba(155, 127, 199, 0.1);
+}
 
-<section class="hero">
-  <div class="hero-content">
-    <h1>Bienvenido a<br>Mamamor ♥</h1>
-    <p>Blanquería para bebés y cosas del hogar, hechas con amor para tu familia.</p>
-    <a href="#" class="btn-primary">Ver productos ♥</a>
-    <div class="hero-badges">
-      <div class="hero-badge">
-        <div class="badge-icon">
-          <svg viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2z"/><path d="M12 6v6l4 2"/></svg>
-        </div>
-        <span>Materiales<br>de calidad</span>
-      </div>
-      <div class="hero-badge">
-        <div class="badge-icon">
-          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
-        </div>
-        <span>Seguros y<br>confiables</span>
-      </div>
-      <div class="hero-badge">
-        <div class="badge-icon">
-          <svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="1"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
-        </div>
-        <span>Envíos a todo<br>el país</span>
-      </div>
-    </div>
-  </div>
-  <div class="hero-image">
-    <img src="images/oso-cama.webp" alt="Bebé con mantita Mamamor">
-  </div>
-</section>
+/* //Whatsapp sticky// */
+/* 1. El contenedor fija todo el conjunto */
+.whatsapp-container {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  z-index: 9999;
+}
 
-<section class="section" style="background: var(--lav-bg);">
-  <div class="section-eyebrow">♥</div>
-  <h2 class="section-title">Nuestros productos</h2>
-  <p class="section-sub">Todo lo que tu bebé necesita, y tu hogar también.</p>
-  <div class="products-grid">
-    <div class="product-card">
-<img src="images/sabanas.webp" alt="Sábanas Mamamor">
-      <div class="product-card-body">
-        <h3>Sábanas</h3>
-        <a href="#" class="btn-sm">Ver más</a>
-      </div>
-    </div>
-    <div class="product-card">
-<img src="images/mantas-acolch.webp" alt="Mantas y acolchados Mamamor">  
-<div class="product-card-body">
-        <h3>Mantas y acolchados</h3>
-        <a href="#" class="btn-sm">Ver más</a>
-      </div>
-    </div>
-    <div class="product-card">
-<img src="images/toallas-nes.webp" alt="Toallas y toallones Mamamor">
-      <div class="product-card-body">
-        <h3>Toallas y toallones</h3>
-        <a href="#" class="btn-sm">Ver más</a>
-      </div>
-    </div>
-    <div class="product-card">
-<img src="images/accesorios.webp" alt="Accessorios Mamamor">
-      <div class="product-card-body">
-        <h3>Accesorios</h3>
-        <a href="#" class="btn-sm">Ver más</a>
-      </div>
-    </div>
-    <div class="product-card">
-<img src="images/hogar.webp" alt="Hogar Mamamor">
-      <div class="product-card-body">
-        <h3>Hogar</h3>
-        <a href="#" class="btn-sm">Ver más</a>
-      </div>
-    </div>
-  </div>
-</section>
+/* 2. El botón ahora es relativo al contenedor, no a la pantalla */
+.svg-whatsapp {
+  position: relative; /* Cambiado de fixed a relative */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+  fill: var(--lav-dark);
+}
 
-<section class="features">
-  <div class="features-grid">
-    <div class="feature-item">
-      <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-      <h4>Hecho con amor</h4>
-      <p>Cada producto está pensado para brindar bienestar y cuidado.</p>
-    </div>
-    <div class="feature-item">
-      <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-      <h4>Calidad premium</h4>
-      <p>Elegimos los mejores materiales para tu tranquilidad.</p>
-    </div>
-    <div class="feature-item">
-      <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-      <h4>Compra segura</h4>
-      <p>Protegemos tus datos y garantizamos una compra segura.</p>
-    </div>
-    <div class="feature-item">
-      <svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
-      <h4>Hasta 6 cuotas</h4>
-      <p>Pagá como quieras con Mercado Pago.</p>
-    </div>
-    <div class="feature-item">
-      <svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="1"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
-      <h4>Envíos rápidos</h4>
-      <p>Llegamos a todo el país.</p>
-    </div>
-  </div>
-</section>
+.svg-whatsapp:hover {
+  transform: scale(1.1);
+}
 
-<div class="newsletter-wrap">
-  <div class="newsletter">
-    <div class="newsletter-content">
-      <h2>Sumate a Mamamor <span class="heart">♥</span></h2>
-      <p>Recibí novedades, promociones exclusivas y tips para tu bebé y tu hogar.</p>
-      <div class="newsletter-form">
-        <input type="email" placeholder="Tu correo electrónico">
-        <button class="btn-primary">Suscribirme ♥</button>
-      </div>
-      <div class="social-row">
-        <a href="#" class="social-btn" aria-label="Instagram">
-          <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-        </a>
-        <a href="#" class="social-btn" aria-label="Facebook">
-          <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-        </a>
-        <a href="#" class="social-btn" aria-label="WhatsApp">
-          <svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
-        </a>
-      </div>
-    </div>
-    <div class="newsletter-image">
-<img src="images/estrella-jarron.webp" alt="Estrella jarrón Mamamor">
-    </div>
-  </div>
 
-</div>
 
-<div class="whatsapp-container">
-  <span class="wsp-label">Contáctanos</span>
-  <a href="https://wa.me/3435197627" class="svg-whatsapp">
-      <a href="https://wa.me/3435197627" class="svg-whatsapp"><svg width="60px" height="60px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="currentColor" stroke="#d219b0"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>Whatsapp-color</title> <desc>Created with Sketch.</desc> <defs> </defs> <g id="Icons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="Color-" transform="translate(-700.000000, -360.000000)" fill="currentColor"> <path d="M723.993033,360 C710.762252,360 700,370.765287 700,383.999801 C700,389.248451 701.692661,394.116025 704.570026,398.066947 L701.579605,406.983798 L710.804449,404.035539 C714.598605,406.546975 719.126434,408 724.006967,408 C737.237748,408 748,397.234315 748,384.000199 C748,370.765685 737.237748,360.000398 724.006967,360.000398 L723.993033,360.000398 L723.993033,360 Z M717.29285,372.190836 C716.827488,371.07628 716.474784,371.034071 715.769774,371.005401 C715.529728,370.991464 715.262214,370.977527 714.96564,370.977527 C714.04845,370.977527 713.089462,371.245514 712.511043,371.838033 C711.806033,372.557577 710.056843,374.23638 710.056843,377.679202 C710.056843,381.122023 712.567571,384.451756 712.905944,384.917648 C713.258648,385.382743 717.800808,392.55031 724.853297,395.471492 C730.368379,397.757149 732.00491,397.545307 733.260074,397.27732 C735.093658,396.882308 737.393002,395.527239 737.971421,393.891043 C738.54984,392.25405 738.54984,390.857171 738.380255,390.560912 C738.211068,390.264652 737.745308,390.095816 737.040298,389.742615 C736.335288,389.389811 732.90737,387.696673 732.25849,387.470894 C731.623543,387.231179 731.017259,387.315995 730.537963,387.99333 C729.860819,388.938653 729.198006,389.89831 728.661785,390.476494 C728.238619,390.928051 727.547144,390.984595 726.969123,390.744481 C726.193254,390.420348 724.021298,389.657798 721.340985,387.273388 C719.267356,385.42535 717.856938,383.125756 717.448104,382.434484 C717.038871,381.729275 717.405907,381.319529 717.729948,380.938852 C718.082653,380.501232 718.421026,380.191036 718.77373,379.781688 C719.126434,379.372738 719.323884,379.160897 719.549599,378.681068 C719.789645,378.215575 719.62006,377.735746 719.450874,377.382942 C719.281687,377.030139 717.871269,373.587317 717.29285,372.190836 Z" id="Whatsapp"> </path> </g> </g> </g></svg></a>
-  </a>
-</div>
+/* 3. El texto */
+.wsp-label {
+  background-color: #fdfdfd;
+  color: #000000;
+  padding: 4px 10px;
+  border: 1px solid #000000; /* Grosor, estilo y color */
+  border-radius: 20px;
+  font-size: 12px;
+  white-space: nowrap;
+}
 
-<footer>
-  <div class="footer-grid">
-    <div>
-      <div class="footer-logo-wrap">
-        <img src="images/logo.png" alt="Logo de Mamamor" class="footer-logo">
-        <span class="footer-brand-name">MAMAMOR</span>
-      </div>
-      <p class="footer-tagline">Hecho con amor para lo más importante.</p>
-    </div>
-    <div class="footer-col">
-      <h5>Información</h5>
-      <ul>
-        <li><a href="#">Sobre nosotros</a></li>
-        <li><a href="#">Preguntas frecuentes</a></li>
-        <li><a href="#">Políticas de cambio</a></li>
-        <li><a href="#">Términos y condiciones</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h5>Ayuda</h5>
-      <ul>
-        <li><a href="#">Envíos</a></li>
-        <li><a href="#">Formas de pago</a></li>
-        <li><a href="#">Seguimiento de pedido</a></li>
-        <li><a href="#">Contacto</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h5>Medios de pago</h5>
-      <div class="payment-stack">
-        <div class="payment-row"><span class="pay-badge">🤝 Mercado Pago</span></div>
-        <div class="payment-row">
-          <span class="pay-badge">VISA</span>
-          <span class="pay-badge">Mastercard</span>
-          <span class="pay-badge">Amex</span>
-        </div>
-        <p class="pay-note">Hasta 6 cuotas sin interés</p>
-      </div>
-    </div>
-  </div>
-  
-  <div class="footer-bottom">
-    © 2026 Mamamor. Todos los derechos reservados. ♥
-  </div>
-</footer>
+.menu-btn {
+  display: none; /* Oculto por defecto */
+}
 
-</body>
-</html>
+.nav-logo img {
+  height: 70px;
+  width: 70px;
+  object-fit: contain;
+  display: block;
+}
+.nav-links {
+  display: flex;
+  gap: 34px;
+  list-style: none;
+}
+.nav-links a {
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 600;
+  font-size: 0.93rem;
+  transition: color 0.2s;
+}
+.nav-links a:hover {
+  color: var(--lav);
+}
+.nav-icons {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+.nav-icon-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  position: relative;
+}
+.nav-icon-btn svg {
+  width: 22px;
+  height: 22px;
+  stroke: var(--text-soft);
+  fill: none;
+  stroke-width: 1.8;
+  display: block;
+  transition: stroke 0.2s;
+}
+.nav-icon-btn:hover svg {
+  stroke: var(--lav);
+}
+.cart-badge {
+  position: absolute;
+  top: -2px;
+  right: -4px;
+  background: var(--lav);
+  color: white;
+  font-size: 0.58rem;
+  font-weight: 800;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* HERO */
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 520px;
+  background: var(--lav-bg);
+}
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 56px 44px 44px 60px;
+  gap: 18px;
+}
+.hero-content h1 {
+  font-family: "Playfair Display", serif;
+  font-size: 2.9rem;
+  line-height: 1.18;
+  color: var(--text);
+}
+.hero-content p {
+  font-size: 1.05rem;
+  color: var(--text-soft);
+  line-height: 1.65;
+  max-width: 320px;
+}
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: var(--lav);
+  color: white;
+  padding: 12px 8px;
+  border-radius: 30px;
+  font-family: "Nunito", sans-serif;
+  font-size: 0.93rem;
+  font-weight: 700;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition:
+    background 0.2s,
+    transform 0.15s;
+  width: fit-content;
+}
+.btn-primary:hover {
+  background: var(--lav-dark);
+  transform: translateY(-1px);
+}
+.hero-badges {
+  display: flex;
+  gap: 30px;
+  margin-top: 6px;
+}
+.hero-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+  text-align: center;
+}
+.badge-icon {
+  width: 46px;
+  height: 46px;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 10px rgba(155, 127, 199, 0.15);
+}
+.badge-icon svg {
+  width: 22px;
+  height: 22px;
+  stroke: var(--lav);
+  fill: none;
+  stroke-width: 1.8;
+}
+.hero-badge span {
+  font-size: 0.73rem;
+  color: var(--text-soft);
+  font-weight: 600;
+  line-height: 1.3;
+}
+.hero-image {
+  overflow: hidden;
+}
+.hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
+
+  -webkit-mask-image:
+    linear-gradient(to right, transparent, black 40%),
+    linear-gradient(to top, transparent, black 40%);
+  mask-image:
+    linear-gradient(to right, transparent, black 40%),
+    linear-gradient(to top, transparent, black 40%);
+
+  -webkit-mask-composite: source-in;
+  /* Estándar: corresponde a source-in (-webkit) */
+  mask-composite: intersect;
+}
+
+/* PRODUCTS */
+.section {
+  padding: 64px 48px;
+  text-align: center;
+}
+.section-eyebrow {
+  color: var(--lav);
+  font-size: 1.2rem;
+  margin-bottom: 6px;
+}
+.section-title {
+  font-family: "Playfair Display", serif;
+  font-size: 2rem;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+.section-sub {
+  color: var(--text-soft);
+  font-size: 0.95rem;
+  margin-bottom: 36px;
+}
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 18px;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+.product-card {
+  background: white;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(155, 127, 199, 0.1);
+  transition:
+    transform 0.22s,
+    box-shadow 0.22s;
+  cursor: pointer;
+}
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 28px rgba(155, 127, 199, 0.2);
+}
+.product-card img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  display: block;
+}
+.product-card-body {
+  padding: 14px 10px 16px;
+  text-align: center;
+}
+.product-card-body h3 {
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 10px;
+}
+.btn-sm {
+  display: inline-block;
+  background: var(--lav);
+  color: white;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 0.76rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+.btn-sm:hover {
+  background: var(--lav-dark);
+}
+
+/* FEATURES */
+.features {
+  background: var(--lav-pale);
+  padding: 52px 48px;
+}
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 28px;
+  max-width: 1080px;
+  margin: 0 auto;
+  text-align: center;
+}
+.feature-item svg {
+  width: 34px;
+  height: 34px;
+  stroke: var(--lav);
+  fill: none;
+  stroke-width: 1.8;
+  margin-bottom: 10px;
+}
+.feature-item h4 {
+  font-size: 0.86rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 5px;
+}
+.feature-item p {
+  font-size: 0.77rem;
+  color: var(--text-soft);
+  line-height: 1.55;
+}
+
+/* NEWSLETTER */
+.newsletter-wrap {
+  padding: 64px 48px;
+  background: var(--lav-bg);
+}
+.newsletter {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  max-width: 800px;
+  margin: 0 auto;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 28px rgba(155, 127, 199, 0.14);
+  background: white;
+  text-align: center;
+}
+.newsletter-content {
+  padding: 52px 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 14px;
+}
+.newsletter-content h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 1.75rem;
+  color: var(--text);
+  line-height: 1.2;
+}
+.newsletter-content h2 .heart {
+  color: var(--lav);
+}
+.newsletter-content p {
+  color: var(--text-soft);
+  font-size: 0.9rem;
+  line-height: 1.65;
+}
+.newsletter-form {
+  display: flex;
+  gap: 10px;
+  margin-top: 6px;
+}
+.newsletter-form input {
+  flex: 1;
+  padding: 1px 1px 1px 18px;
+  border: 1.5px solid var(--lav-mid);
+  border-radius: 25px;
+  font-family: "Nunito", sans-serif;
+  font-size: 0.87rem;
+  color: var(--text);
+  outline: none;
+  transition: border-color 0.2s;
+}
+.newsletter-form input:focus {
+  border-color: var(--lav);
+}
+.newsletter-form input::placeholder {
+  color: var(--text-soft);
+}
+.social-row {
+  display: flex;
+  gap: 12px;
+  margin-top: 4px;
+}
+.social-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1.5px solid var(--lav-mid);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+.social-btn:hover {
+  border-color: var(--lav);
+  background: var(--lav-pale);
+}
+.social-btn svg {
+  width: 17px;
+  height: 17px;
+  stroke: var(--lav);
+  fill: none;
+  stroke-width: 1.8;
+}
+.newsletter-image {
+  overflow: hidden;
+}
+.newsletter-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* FOOTER */
+footer {
+  background: white;
+  border-top: 1px solid var(--lav-mid);
+  padding: 52px 60px 0;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1.2fr 1.2fr 1.6fr;
+  gap: 40px;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding-bottom: 44px;
+}
+.footer-logo-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 4px;
+}
+.footer-logo-wrap img {
+  height: 56px;
+  width: 56px;
+  object-fit: contain;
+}
+.footer-brand-name {
+  font-family: "Playfair Display", serif;
+  font-size: 1.15rem;
+  color: var(--lav);
+  letter-spacing: 0.08em;
+  font-weight: 600;
+}
+.footer-tagline {
+  font-size: 0.8rem;
+  color: var(--text-soft);
+  font-style: italic;
+  margin-top: 6px;
+}
+.footer-col h5 {
+  font-size: 0.87rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 14px;
+}
+.footer-col ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+.footer-col ul li a {
+  text-decoration: none;
+  color: var(--text-soft);
+  font-size: 0.83rem;
+  transition: color 0.2s;
+}
+.footer-col ul li a:hover {
+  color: var(--lav);
+}
+.payment-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.payment-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.pay-badge {
+  background: var(--lav-pale);
+  color: var(--lav);
+  border-radius: 6px;
+  padding: 5px 12px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+}
+.pay-note {
+  font-size: 0.73rem;
+  color: var(--text-soft);
+  margin-top: 4px;
+}
+.footer-bottom {
+  border-top: 1px solid var(--lav-mid);
+  padding: 16px 0;
+  text-align: center;
+  font-size: 0.79rem;
+  color: var(--text-soft);
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+/* Tablets horizontales / notebooks pequeñas */
+@media (max-width: 1024px) {
+  nav {
+    padding: 10px 20px;
+  }
+  .nav-links {
+    display: none;
+  }
+  .hero {
+    grid-template-columns: 1fr;
+  }
+  .hero-image {
+    height: 280px;
+  }
+  .hero-content {
+    padding: 36px 24px;
+  }
+  .hero-content h1 {
+    font-size: 2.2rem;
+  }
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .newsletter {
+    grid-template-columns: 1fr;
+  }
+  .newsletter-image {
+    height: 200px;
+  }
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .section {
+    padding: 44px 20px;
+  }
+  .newsletter-wrap {
+    padding: 44px 20px;
+  }
+  footer {
+    padding: 40px 24px 0;
+  }
+
+  nav {
+    position: relative;
+    justify-content: flex-end;
+    padding: 0px 20px;
+    height: 90px;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .menu-btn {
+    display: flex;
+    position: absolute;
+    left: 20px;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 42px;
+    height: 42px;
+
+    background: none;
+    border: none;
+    cursor: pointer;
+
+    font-size: 28px;
+    color: var(--text);
+  }
+
+  .nav-logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .nav-logo img {
+    width: 70px;
+    height: 70px;
+  }
+
+  .nav-icons {
+    display: flex;
+    gap: 12px;
+  }
+
+  .menu-btn svg {
+    width: 28px;
+    height: 28px;
+    stroke: var(--text);
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+  }
+
+  .hero-image {
+    overflow: hidden;
+  }
+  .hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    display: block;
+
+    -webkit-mask-image:
+      linear-gradient(to right, transparent, black 40%),
+      linear-gradient(to top, transparent, black 40%),
+      linear-gradient(to left, transparent, black 40%),
+      linear-gradient(to bottom, transparent, black 40%);
+    mask-image:
+      linear-gradient(to right, transparent, black 40%),
+      linear-gradient(to top, transparent, black 40%),
+      linear-gradient(to left, transparent, black 40%),
+      linear-gradient(to bottom, transparent, black 40%);
+
+    -webkit-mask-composite: source-in;
+    /* Estándar: corresponde a source-in (-webkit) */
+    mask-composite: intersect;
+  }
+
+  /* NEWSLETTER */
+
+  .social-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin-top: 4px;
+  }
+
+  .newsletter-wrap {
+    padding: 30px 30px;
+    background: var(--lav-bg);
+  }
+  .newsletter {
+    display: grid;
+    grid-template-columns: 1fr;
+    max-width: 800px;
+    margin: 0 auto;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 28px rgba(155, 127, 199, 0.14);
+    background: white;
+  }
+  .newsletter-content {
+    padding: 30px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 14px;
+  }
+  .newsletter-content h2 {
+    font-family: "Playfair Display", serif;
+    font-size: 1.75rem;
+    color: var(--text);
+    line-height: 1.2;
+  }
+  .newsletter-content h2 .heart {
+    color: var(--lav);
+  }
+  .newsletter-content p {
+    color: var(--text-soft);
+    font-size: 0.9rem;
+    line-height: 1.65;
+  }
+  .newsletter-form {
+    display: flex;
+    gap: 10px;
+    margin-top: 6px;
+  }
+  .newsletter-form input {
+    flex: 1;
+    padding: 11px 18px;
+    border: 1.5px solid var(--lav-mid);
+    border-radius: 25px;
+    font-family: "Nunito", sans-serif;
+    font-size: 0.87rem;
+    color: var(--text);
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .newsletter-form input:focus {
+    border-color: var(--lav);
+  }
+  .newsletter-form input::placeholder {
+    color: var(--text-soft);
+  }
+  .social-row {
+    gap: 12px;
+    margin-top: 4px;
+  }
+
+  .social-btn {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    border: 1.5px solid var(--lav-mid);
+  }
+
+  .social-btn svg {
+    width: 17px;
+    height: 17px;
+    display: block;
+  }
+
+  .social-btn:hover {
+    border-color: var(--lav);
+    background: var(--lav-pale);
+  }
+
+  .newsletter-image {
+    overflow: hidden;
+  }
+  .newsletter-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+}
+
+/* Tablets */
+@media (max-width: 768px) {
+  nav {
+    position: relative;
+    justify-content: flex-end;
+    padding: 0px 20px;
+    height: 90px;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .menu-btn {
+    display: flex;
+    position: absolute;
+    left: 20px;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 42px;
+    height: 42px;
+
+    background: none;
+    border: none;
+    cursor: pointer;
+
+    font-size: 28px;
+    color: var(--text);
+  }
+
+  .nav-logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .nav-logo img {
+    width: 70px;
+    height: 70px;
+  }
+
+  .nav-icons {
+    display: flex;
+    gap: 12px;
+  }
+
+  .menu-btn svg {
+    width: 28px;
+    height: 28px;
+    stroke: var(--text);
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+  }
+
+  .hero-image {
+    overflow: hidden;
+  }
+  .hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    display: block;
+
+    -webkit-mask-image:
+      linear-gradient(to right, transparent, black 40%),
+      linear-gradient(to top, transparent, black 40%),
+      linear-gradient(to left, transparent, black 40%),
+      linear-gradient(to bottom, transparent, black 40%);
+    mask-image:
+      linear-gradient(to right, transparent, black 40%),
+      linear-gradient(to top, transparent, black 40%),
+      linear-gradient(to left, transparent, black 40%),
+      linear-gradient(to bottom, transparent, black 40%);
+
+    -webkit-mask-composite: source-in;
+    /* Estándar: corresponde a source-in (-webkit) */
+    mask-composite: intersect;
+  }
+
+  /* NEWSLETTER */
+
+  .social-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin-top: 4px;
+  }
+
+  .newsletter-wrap {
+    padding: 30px 30px;
+    background: var(--lav-bg);
+  }
+  .newsletter {
+    display: grid;
+    grid-template-columns: 1fr;
+    max-width: 800px;
+    margin: 0 auto;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 28px rgba(155, 127, 199, 0.14);
+    background: white;
+  }
+  .newsletter-content {
+    padding: 30px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 14px;
+  }
+  .newsletter-content h2 {
+    font-family: "Playfair Display", serif;
+    font-size: 1.75rem;
+    color: var(--text);
+    line-height: 1.2;
+  }
+  .newsletter-content h2 .heart {
+    color: var(--lav);
+  }
+  .newsletter-content p {
+    color: var(--text-soft);
+    font-size: 0.9rem;
+    line-height: 1.65;
+  }
+  .newsletter-form {
+    display: flex;
+    gap: 10px;
+    margin-top: 6px;
+  }
+  .newsletter-form input {
+    flex: 1;
+    padding: 11px 18px;
+    border: 1.5px solid var(--lav-mid);
+    border-radius: 25px;
+    font-family: "Nunito", sans-serif;
+    font-size: 0.87rem;
+    color: var(--text);
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .newsletter-form input:focus {
+    border-color: var(--lav);
+  }
+  .newsletter-form input::placeholder {
+    color: var(--text-soft);
+  }
+  .social-row {
+    gap: 12px;
+    margin-top: 4px;
+  }
+
+  .social-btn {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    border: 1.5px solid var(--lav-mid);
+  }
+
+  .social-btn svg {
+    width: 17px;
+    height: 17px;
+    display: block;
+  }
+
+  .social-btn:hover {
+    border-color: var(--lav);
+    background: var(--lav-pale);
+  }
+
+  .newsletter-image {
+    overflow: hidden;
+  }
+  .newsletter-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+}
+
+/* Celulares grandes */
+@media (max-width: 640px) {
+  nav {
+    position: relative;
+    justify-content: flex-end;
+    padding: 0px 20px;
+    height: 90px;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .menu-btn {
+    display: flex;
+    position: absolute;
+    left: 20px;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 42px;
+    height: 42px;
+
+    background: none;
+    border: none;
+    cursor: pointer;
+
+    font-size: 28px;
+    color: var(--text);
+  }
+
+  .nav-logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .nav-logo img {
+    width: 70px;
+    height: 70px;
+  }
+
+  .nav-icons {
+    display: flex;
+    gap: 12px;
+  }
+
+  .menu-btn svg {
+    width: 28px;
+    height: 28px;
+    stroke: var(--text);
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+  }
+
+  .hero-image {
+    overflow: hidden;
+  }
+  .hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    display: block;
+
+    -webkit-mask-image:
+      linear-gradient(to right, transparent, black 40%),
+      linear-gradient(to top, transparent, black 40%),
+      linear-gradient(to left, transparent, black 40%),
+      linear-gradient(to bottom, transparent, black 40%);
+    mask-image:
+      linear-gradient(to right, transparent, black 40%),
+      linear-gradient(to top, transparent, black 40%),
+      linear-gradient(to left, transparent, black 40%),
+      linear-gradient(to bottom, transparent, black 40%);
+
+    -webkit-mask-composite: source-in;
+    /* Estándar: corresponde a source-in (-webkit) */
+    mask-composite: intersect;
+  }
+
+  /* NEWSLETTER */
+
+  .social-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin-top: 4px;
+  }
+
+  .newsletter-wrap {
+    padding: 30px 30px;
+    background: var(--lav-bg);
+  }
+  .newsletter {
+    display: grid;
+    grid-template-columns: 1fr;
+    max-width: 800px;
+    margin: 0 auto;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 28px rgba(155, 127, 199, 0.14);
+    background: white;
+  }
+  .newsletter-content {
+    padding: 30px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 14px;
+  }
+  .newsletter-content h2 {
+    font-family: "Playfair Display", serif;
+    font-size: 1.75rem;
+    color: var(--text);
+    line-height: 1.2;
+  }
+  .newsletter-content h2 .heart {
+    color: var(--lav);
+  }
+  .newsletter-content p {
+    color: var(--text-soft);
+    font-size: 0.9rem;
+    line-height: 1.65;
+  }
+  .newsletter-form {
+    display: flex;
+    gap: 10px;
+    margin-top: 6px;
+  }
+  .newsletter-form input {
+    flex: 1;
+    padding: 11px 18px;
+    border: 1.5px solid var(--lav-mid);
+    border-radius: 25px;
+    font-family: "Nunito", sans-serif;
+    font-size: 0.87rem;
+    color: var(--text);
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .newsletter-form input:focus {
+    border-color: var(--lav);
+  }
+  .newsletter-form input::placeholder {
+    color: var(--text-soft);
+  }
+  .social-row {
+    gap: 12px;
+    margin-top: 4px;
+  }
+
+  .social-btn {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    border: 1.5px solid var(--lav-mid);
+  }
+
+  .social-btn svg {
+    width: 17px;
+    height: 17px;
+    display: block;
+  }
+
+  .social-btn:hover {
+    border-color: var(--lav);
+    background: var(--lav-pale);
+  }
+
+  .newsletter-image {
+    overflow: hidden;
+  }
+  .newsletter-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+}
+
+/* Celulares */
+@media (max-width: 480px) {
+  nav {
+    position: relative;
+    justify-content: flex-end;
+    padding: 0px 20px;
+    height: 90px;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .menu-btn {
+    display: flex;
+    position: absolute;
+    left: 20px;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 42px;
+    height: 42px;
+
+    background: none;
+    border: none;
+    cursor: pointer;
+
+    font-size: 28px;
+    color: var(--text);
+  }
+
+  .nav-logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .nav-logo img {
+    width: 70px;
+    height: 70px;
+  }
+
+  .nav-icons {
+    display: flex;
+    gap: 12px;
+  }
+
+  .menu-btn svg {
+    width: 28px;
+    height: 28px;
+    stroke: var(--text);
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+  }
+
+  .hero-image {
+    overflow: hidden;
+  }
+  .hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    display: block;
+
+    -webkit-mask-image:
+      linear-gradient(to right, transparent, black 40%),
+      linear-gradient(to top, transparent, black 40%),
+      linear-gradient(to left, transparent, black 40%),
+      linear-gradient(to bottom, transparent, black 40%);
+    mask-image:
+      linear-gradient(to right, transparent, black 40%),
+      linear-gradient(to top, transparent, black 40%),
+      linear-gradient(to left, transparent, black 40%),
+      linear-gradient(to bottom, transparent, black 40%);
+
+    -webkit-mask-composite: source-in;
+    /* Estándar: corresponde a source-in (-webkit) */
+    mask-composite: intersect;
+  }
+
+  /* NEWSLETTER */
+
+  .social-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin-top: 4px;
+  }
+
+  .newsletter-wrap {
+    padding: 30px 30px;
+    background: var(--lav-bg);
+  }
+  .newsletter {
+    display: grid;
+    grid-template-columns: 1fr;
+    max-width: 800px;
+    margin: 0 auto;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 28px rgba(155, 127, 199, 0.14);
+    background: white;
+  }
+  .newsletter-content {
+    padding: 30px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 14px;
+  }
+  .newsletter-content h2 {
+    font-family: "Playfair Display", serif;
+    font-size: 1.75rem;
+    color: var(--text);
+    line-height: 1.2;
+  }
+  .newsletter-content h2 .heart {
+    color: var(--lav);
+  }
+  .newsletter-content p {
+    color: var(--text-soft);
+    font-size: 0.9rem;
+    line-height: 1.65;
+  }
+  .newsletter-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-top: 6px;
+  }
+  .newsletter-form input {
+    flex: 1;
+    padding: 11px 18px;
+    border: 1.5px solid var(--lav-mid);
+    border-radius: 25px;
+    font-family: "Nunito", sans-serif;
+    font-size: 0.87rem;
+    color: var(--text);
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .newsletter-form input:focus {
+    border-color: var(--lav);
+  }
+  .newsletter-form input::placeholder {
+    color: var(--text-soft);
+  }
+  .social-row {
+    gap: 12px;
+    margin-top: 4px;
+  }
+
+  .social-btn {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    border: 1.5px solid var(--lav-mid);
+  }
+
+  .social-btn svg {
+    width: 17px;
+    height: 17px;
+    display: block;
+  }
+
+  .social-btn:hover {
+    border-color: var(--lav);
+    background: var(--lav-pale);
+  }
+
+  .newsletter-image {
+    overflow: hidden;
+  }
+  .newsletter-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* //Whatsapp sticky// */
+  /* 1. El contenedor fija todo el conjunto */
+  .whatsapp-container {
+    position: fixed;
+    right: 18px;
+    bottom: 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    z-index: 9999;
+  }
+
+  /* 2. El botón ahora es relativo al contenedor, no a la pantalla */
+  .svg-whatsapp {
+    position: relative; /* Cambiado de fixed a relative */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+  }
+
+  .svg-whatsapp svg {
+    height: 70%;
+    width: 70%;
+  }
+
+  .svg-whatsapp:hover {
+    transform: scale(1.1);
+  }
+
+  /* 3. El texto */
+  .wsp-label {
+    background-color: #fdfdfd;
+    color: #000000;
+    padding: 4px 10px;
+    border: 1px solid #000000; /* Grosor, estilo y color */
+    border-radius: 20px;
+    font-size: 8px;
+    white-space: nowrap;
+  }
+}
